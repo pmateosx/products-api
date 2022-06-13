@@ -18,10 +18,6 @@ const productSchema = new mongoose.Schema(
         type: Number,
         required: [true, "Price is required"],
     },
-    size: {
-        type: String,
-        required: [true, "Size is required"],
-    },
     used: {
         type: Boolean,
     }
@@ -37,7 +33,6 @@ const productSchema = new mongoose.Schema(
     },
   }
 )
-
 
 const Product = mongoose.model("Product", productSchema);
 module.exports = Product;
