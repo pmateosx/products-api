@@ -22,6 +22,12 @@ module.exports.createProduct = (req, res, next) => {
 
 module.exports.deleteProduct = (req, res, next) => {
     Product.findByIdAndDelete(req.params.id)
-      .then(product => res.status(202).json(product))
-      .catch(next)
+        .then(product => res.status(202).json(product))
+        .catch(next)
+}
+
+module.exports.getProductDetail = (req, res, next) => {
+    Product.findById(req.params.id)
+        .then(productDetails => res.status(200).json(productDetails))
+        .catch(next)
 }
