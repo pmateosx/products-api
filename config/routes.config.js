@@ -12,6 +12,6 @@ router.get('/products', product.listProducts)
 router.post('/products', product.createProduct)
 router.delete('/products/:id', product.deleteProduct)
 router.get('/products/:id', product.getProductDetail)
-/* router.put('/products', product.editProduct) */
+router.patch('/products/:id', product.updateProduct)
 
 module.exports = router
