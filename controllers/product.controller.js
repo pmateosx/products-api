@@ -34,8 +34,6 @@ module.exports.getProductDetail = (req, res, next) => {
 
 module.exports.updateProduct = (req, res, next) => {
     Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      .then(productUpdated => {
-        res.status(200).json(productUpdated)
-      })
-      .catch(next)
+        .then(productUpdated => res.status(200).json(productUpdated))
+        .catch(next)
 }
