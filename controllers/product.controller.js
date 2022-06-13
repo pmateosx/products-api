@@ -19,3 +19,9 @@ module.exports.createProduct = (req, res, next) => {
         .then(product => res.status(200).json(product))
         .catch(next)
 }
+
+module.exports.deleteProduct = (req, res, next) => {
+    Product.findByIdAndDelete(req.params.id)
+      .then(product => res.status(202).json(product))
+      .catch(next)
+}

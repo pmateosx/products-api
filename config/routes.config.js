@@ -10,5 +10,7 @@ router.get('/', (req, res, next) => res.status(200).json({ ok: 'yass!' }))
 //Product
 router.get('/products', product.listProducts)
 router.post('/products', product.createProduct)
+router.delete('/products/:id', product.deleteProduct)
+/* router.put('/products', product.editProduct) */
 
 module.exports = router
