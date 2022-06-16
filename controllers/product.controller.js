@@ -33,7 +33,13 @@ module.exports.getProductDetail = (req, res, next) => {
 }
 
 module.exports.updateProduct = (req, res, next) => {
-    Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    const newProduct = req.body
+
+    if (req.file) {
+        newProduct.image = req.file.path
+    }
+
+    Product.findByIdAndUpdate(req.params.id, newProduct, { new: true })
         .then(productUpdated => res.status(200).json(productUpdated))
         .catch(next)
 }
