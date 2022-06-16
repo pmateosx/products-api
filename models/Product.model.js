@@ -20,6 +20,7 @@ const productSchema = new mongoose.Schema(
     },
     used: {
         type: Boolean,
+        default: false,
     }
   },
   {

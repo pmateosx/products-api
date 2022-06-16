@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const cors = require('cors')
 const mongoose = require('mongoose')
 const createError = require('http-errors')
 const logger = require('morgan')
@@ -10,6 +10,7 @@ require('./config/db.config')
 const app = express()
 
 /* Middlewares */
+app.use(cors())
 app.use(express.json())
 app.use(logger('dev'))
 

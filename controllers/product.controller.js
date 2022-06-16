@@ -9,13 +9,13 @@ module.exports.listProducts = (req, res, next) => {
 }
 
 module.exports.createProduct = (req, res, next) => {
-    const product = { name, description, price } = req.body
+    const newProduct = req.body
 
     if (req.file) {
-        req.body.images = req.file.path
+        newProduct.image = req.file.path
     }
 
-    Product.create(product)
+    Product.create(newProduct)
         .then(product => res.status(200).json(product))
         .catch(next)
 }
